@@ -68,13 +68,27 @@ class MainEngine(object):
             self.gatewayDict['FEMAS'].setQryEnabled(True)
         except Exception, e:
             print e  
-            
+        
+        try:
+            from xspeedGateway.xspeedGateway import XspeedGateway
+            self.addGateway(XspeedGateway, 'XSPEED')
+            self.gatewayDict['XSPEED'].setQryEnabled(True)
+        except Exception, e:
+            print e          
+        
         try:
             from ksgoldGateway.ksgoldGateway import KsgoldGateway
             self.addGateway(KsgoldGateway, 'KSGOLD')
             self.gatewayDict['KSGOLD'].setQryEnabled(True)
         except Exception, e:
             print e
+            
+        try:
+            from sgitGateway.sgitGateway import SgitGateway
+            self.addGateway(SgitGateway, 'SGIT')
+            self.gatewayDict['SGIT'].setQryEnabled(True)
+        except Exception, e:
+            print e        
             
         try:
             from windGateway.windGateway import WindGateway

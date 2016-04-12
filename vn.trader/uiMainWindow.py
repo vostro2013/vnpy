@@ -80,10 +80,16 @@ class MainWindow(QtGui.QMainWindow):
         connectKsotpAction.triggered.connect(self.connectKsotp)
         
         connectFemasAction = QtGui.QAction(u'连接飞马', self)
-        connectFemasAction.triggered.connect(self.connectFemas)        
+        connectFemasAction.triggered.connect(self.connectFemas)  
+        
+        connectXspeedAction = QtGui.QAction(u'连接飞创', self)
+        connectXspeedAction.triggered.connect(self.connectXspeed)          
         
         connectKsgoldAction = QtGui.QAction(u'连接金仕达黄金', self)
-        connectKsgoldAction.triggered.connect(self.connectKsgold)           
+        connectKsgoldAction.triggered.connect(self.connectKsgold)  
+        
+        connectSgitAction = QtGui.QAction(u'连接飞鼠', self)
+        connectSgitAction.triggered.connect(self.connectSgit)         
         
         connectWindAction = QtGui.QAction(u'连接Wind', self)
         connectWindAction.triggered.connect(self.connectWind)
@@ -119,8 +125,10 @@ class MainWindow(QtGui.QMainWindow):
         sysMenu.addAction(connectCtpAction)
         sysMenu.addAction(connectLtsAction)
         sysMenu.addAction(connectFemasAction)
+        sysMenu.addAction(connectXspeedAction)
         sysMenu.addAction(connectKsotpAction)
         sysMenu.addAction(connectKsgoldAction)
+        sysMenu.addAction(connectSgitAction)
         sysMenu.addSeparator()
         sysMenu.addAction(connectIbAction)    
         sysMenu.addAction(connectOandaAction)
@@ -191,11 +199,21 @@ class MainWindow(QtGui.QMainWindow):
     def connectFemas(self):
         """连接飞马接口"""
         self.mainEngine.connect('FEMAS')        
-        
+    
+    #----------------------------------------------------------------------
+    def connectXspeed(self):
+        """连接飞马接口"""
+        self.mainEngine.connect('XSPEED')             
+    
     #----------------------------------------------------------------------
     def connectKsgold(self):
         """连接金仕达黄金接口"""
         self.mainEngine.connect('KSGOLD')            
+        
+    #----------------------------------------------------------------------
+    def connectSgit(self):
+        """连接飞鼠接口"""
+        self.mainEngine.connect('SGIT')     
     
     #----------------------------------------------------------------------
     def connectWind(self):
